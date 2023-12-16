@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GIK299_L4
+namespace Person
 {
-    public struct Hair
+    public class AddPerson
     {
-        public string HairLength;
-        public string Haircolor;
     }
 }

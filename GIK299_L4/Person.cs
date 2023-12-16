@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GIK299_L3
+namespace GIK299_L4
 {
     public class Person
     {
@@ -13,9 +13,9 @@ namespace GIK299_L3
         public Gender Gender { get; private set; }
         public Hair Hair { get; private set; }
         public string EyeColor { get; private set; }
-        public DateTime BirthDate { get; private set; }
+        public string BirthDate { get; private set; }
 
-        public Person(string name, Gender gender, string eyeColor, Hair hair, DateTime birthDate)
+        public Person(string name, Gender gender, string eyeColor, Hair hair, string birthDate)
         {
             Name = name;
             Gender = gender;
