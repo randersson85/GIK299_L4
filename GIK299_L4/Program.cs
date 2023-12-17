@@ -148,7 +148,7 @@ namespace GIK299_L4
                                             Console.WriteLine("Ogiltigt val");
                                             return;
                                     }
-
+                                    //Hade varit fint med en metod som gjorde initialen stor.
                                     Console.WriteLine($"Du har valt kön: {gender}");
 
                                 }
