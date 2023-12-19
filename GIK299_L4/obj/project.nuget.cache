@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mIPqKrPAIsvjRkXUxsmV8y8kBMzxMjIm9uAnHu04bXodrqJR7zJKpW3W0gsi3krnVQ6CCco/EwgcEVyv/Q/Tmg==",
+  "dgSpecHash": "oME7KTXQI/l6xacvVc6HlKAdaBMey5iFererQpJOHEym9hxc5q9JoDLbIheTWtfpRMnOcmaj25eEyk6hp5KdjQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\plobb\\OneDrive - Högskolan Dalarna\\GIK299\\GIK299_L4\\GIK299_L4\\GIK299_L4.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\plobb\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\plobb\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\plobb\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\plobb\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.25\\microsoft.netcore.app.host.win-x64.6.0.25.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 using System;
 using System.Linq.Expressions;
-using System.Security.Cryptography.X509Certificates;
-using gik299_l4;
+using static GIK299_L4.Person;
+using static GIK299_L4.Person.AddPerson;
 
 namespace GIK299_L4
 {
@@ -14,9 +14,9 @@ namespace GIK299_L4
 
             try
             {
-                int menuSelector = 0;
-                int lastMenuOption = 3;
-                bool loopMenu = true;
+                int menuSelector = 0; //Variabel för att menyval i huvudmenyn.
+                int lastMenuOption = 3; //Variable för antalet val det finns i huvudmenyn.
+                bool loopMenu = true; //Variabel som bestämmer om huvudmenyn ska loopas. Menyn körs tills variabeln sätts till false.
 
 
                 while (loopMenu) //en whileloop där variabeln loopMenu är villkoret som avgör om loopen ska fortsätta eller ej
@@ -32,11 +32,11 @@ namespace GIK299_L4
 
 
                     Console.Write("> ");
-                    bool parseSuccess;
+                    //bool parseSuccess;
 
                     
 
-                    parseSuccess = int.TryParse(Console.ReadLine(), out menuSelector);
+                    bool parseSuccess = int.TryParse(Console.ReadLine(), out menuSelector);
                     //("How the int.TryParse actually works," 2013)
                     // Kontrollerar om det går att parsea strängen, att selectorn inte är 0, innehåller negativa tal
                     // Eller är större än antalet val på menyn.
@@ -120,9 +120,9 @@ namespace GIK299_L4
                                         }
                                     }
 
-                                    // Use switch statement based on user's choice
+                                    
 
-                                    switch (genderChoice)
+                                    switch (genderChoice) // Switch för val av kön.
                                     {
                                         case 1:
                                             gender = Gender.kvinna;
@@ -152,10 +152,10 @@ namespace GIK299_L4
                                     Console.WriteLine($"Du har valt kön: {gender}");
 
                                 }
-                                catch (Exception)
+                                catch (Exception e)
                                 {
-
-                                    throw;
+                                    Console.WriteLine(e.Message);
+                                   
                                 }
                                 //Kontrollerar inmatningen av ögonfärg, om inget värde anges värdet till okänt.
                                 try
@@ -220,57 +220,46 @@ namespace GIK299_L4
                                     throw;
                                 }
 
-                                //Lagt initieringen av struct för hår utanför alla try catch för att den inte ville gå vidare till constructorn.
-                                //Felsöks i mån av tid.
+                                //Lagt initieringen av struct för hår utanför alla try catch för att den inte ville gå vidare till constructorn
 
                                 Hair hair = new Hair { HairLength = tempHairLength, Haircolor = tempHairColor };
 
                                 Person person = new Person(name, gender, eyeColor, hair, birthdate);
+                                
                                 if (addPerson == null)
                                 {
-                                    addPerson = new AddPerson();
+                                    addPerson = new AddPerson(person);
                                 }
-                                addPerson.AddPersonToList(person);
+                                else
+                                {
+                                     addPerson = new Person.AddPerson(person);
+                                }
+                                    
+
 
                                 break;
                             }
-
-                    
-                
-
-
-                            //Person person = new Person(name, gender, eyeColor, hair, birthdate);
-                            //AddPerson addperson = new AddPerson(person);
-
-                    //personList.Add(person);
-
-                    //Console.WriteLine(person.ToString());
-                    //Console.WriteLine();
-
-                    //RestaurantTable table3 = new RestaurantTable(3, 2, Reservation.NotReserved);
-                    //table3.SeatGuests(false);
-                    //restaurantTables.Add(table3);
-
-
-
-
-
-                        case 2:
+                            
+                        case 2: //Menyval 2, lista inmata personer.
                             {
-                                if (addPerson == null || addPerson.Persons.Count == 0)
+                                if (addPerson == null)
                                 {
                                     Console.WriteLine("Listan över personer är tom, börja med att lägga till personer först.");
                                 }
                                 else
                                 {
-                                    // Visa lagrade personer
-                                    Console.WriteLine(addPerson.ToString());
+                                    
+                                    Person.ListPersons listPersons = new Person.ListPersons();
+
+                                    // Hämta resultatet och skriv ut det
+                                    string result = listPersons.Result;
+                                    Console.WriteLine(result);
                                 }
 
                                 break;
                             }
 
-                        case 3:
+                        case 3: //Meny
                             {
                                 loopMenu = false;
                                 Console.WriteLine("Avslutar programmet");
