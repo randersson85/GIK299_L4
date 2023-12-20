@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/.vs/GIK299_L4/v17/.futdcache.v2
+/.vs/GIK299_L4/v17/.suo
