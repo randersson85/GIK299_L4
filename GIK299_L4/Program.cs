@@ -32,7 +32,6 @@ namespace GIK299_L4
 
 
                     Console.Write("> ");
-                    //bool parseSuccess;
 
                     
 
@@ -62,10 +61,11 @@ namespace GIK299_L4
 
                                 try // Försöksblocket för personnamn.
                                 {
-                                    bool loop = true;
+                                    bool loop = true; //Loopvariabel för personnamn
                                     while (loop)
                                     {
-                                        Console.Write("Ange namn på aktuell person: ");
+                                        Console.WriteLine("Ange namn på aktuell person. \nOm namn saknas ange löpnummer från övervakningssystem");
+                                        Console.Write(">");
                                         name = Console.ReadLine();
 
                                         //Kontrollerar inmatad sträng för att utesluta att strängen är tom.
@@ -88,7 +88,7 @@ namespace GIK299_L4
 
 
                                 try //Tryblock för val av kön.
-                                {   //("Total number of items defined in an enum," 2009
+                                {   //("Total number of items defined in an enum," 2009)
                                     // Skapar en array med alla kön angivna i enum Gender, vi tar längden på denna array för att veta hur många val
                                     // som ska finnas i menyn där man väljer kön.
 
@@ -188,7 +188,7 @@ namespace GIK299_L4
                                     }
 
 
-                                    Console.Write("Ange hårfärg (Tryck om okänt eller inget hår tryck enter) ");
+                                    Console.Write("Ange hårfärg (Om okänt eller inget hår tryck enter) ");
                                     tempHairColor = Console.ReadLine();
                                     if (string.IsNullOrWhiteSpace(tempHairColor))
                                     {

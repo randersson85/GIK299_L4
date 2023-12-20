@@ -33,8 +33,6 @@ namespace GIK299_L4
             }
         }
 
-
-
         public class ListPersons
         {
             public string Result { get; private set; }
