@@ -33,7 +33,7 @@ namespace GIK299_L4
 
                     Console.Write("> ");
 
-                    
+
 
                     bool parseSuccess = int.TryParse(Console.ReadLine(), out menuSelector);
                     //("How the int.TryParse actually works," 2013)
@@ -44,7 +44,7 @@ namespace GIK299_L4
                         Console.WriteLine($"Menyvalet måste vara ett heltal mellan 1 och {lastMenuOption}");
                     }
 
-                    
+
                     switch (menuSelector) //Stora switchen för Huvudmenyn
                     {
                         case 1: //Case 1 som skapar upp personobjekt.
@@ -120,7 +120,7 @@ namespace GIK299_L4
                                         }
                                     }
 
-                                    
+
 
                                     switch (genderChoice) // Switch för val av kön.
                                     {
@@ -155,7 +155,7 @@ namespace GIK299_L4
                                 catch (Exception e)
                                 {
                                     Console.WriteLine(e.Message);
-                                   
+
                                 }
                                 //Kontrollerar inmatningen av ögonfärg, om inget värde anges värdet till okänt.
                                 try
@@ -225,21 +225,21 @@ namespace GIK299_L4
                                 Hair hair = new Hair { HairLength = tempHairLength, Haircolor = tempHairColor };
 
                                 Person person = new Person(name, gender, eyeColor, hair, birthdate);
-                                
+
                                 if (addPerson == null)
                                 {
                                     addPerson = new AddPerson(person);
                                 }
                                 else
                                 {
-                                     addPerson = new Person.AddPerson(person);
+                                    addPerson = new Person.AddPerson(person);
                                 }
-                                    
+
 
 
                                 break;
                             }
-                            
+
                         case 2: //Menyval 2, lista inmata personer.
                             {
                                 if (addPerson == null)
@@ -248,7 +248,7 @@ namespace GIK299_L4
                                 }
                                 else
                                 {
-                                    
+
                                     Person.ListPersons listPersons = new Person.ListPersons();
 
                                     // Hämta resultatet och skriv ut det
@@ -284,5 +284,3 @@ namespace GIK299_L4
      * https://stackoverflow.com/questions/15294878/how-the-int-tryparse-actually-works */
     // https://stackoverflow.com/questions/856154/total-number-of-items-defined-in-an-enum
 }
-
-
