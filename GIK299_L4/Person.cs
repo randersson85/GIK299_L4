@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GIK299_L3
+namespace GIK299_L4
 {
     public class Person
     {
@@ -13,9 +13,9 @@ namespace GIK299_L3
         public Gender Gender { get; private set; }
         public Hair Hair { get; private set; }
         public string EyeColor { get; private set; }
-        public DateTime BirthDate { get; private set; }
+        public string BirthDate { get; private set; }
 
-        public Person(string name, Gender gender, string eyeColor, Hair hair, DateTime birthDate)
+        public Person(string name, Gender gender, string eyeColor, Hair hair, string birthDate)
         {
             Name = name;
             Gender = gender;
@@ -24,14 +24,33 @@ namespace GIK299_L3
             BirthDate = birthDate;
         }
 
-        public override string ToString()
+        public class AddPerson
         {
-            return $"Namn:\t \t {Name}" +
-                   $"\nKön:\t \t {Gender}" +
-                   $"\nÖgonfärg:\t {EyeColor}" +
-                   $"\nHår:\t \t {Hair.Haircolor},{Hair.HairLength}" +
-                   $"\nFödelsedatum:\t {BirthDate:yyyy/MM/dd}";
-
+            public static List<Person> people = new List<Person>();
+            public AddPerson(Person person)
+            {
+                people.Add(person);
+            }
         }
+
+        public class ListPersons
+        {
+            public string Result { get; private set; }
+
+            public ListPersons()
+            {
+                Result = null;
+                foreach (var person in AddPerson.people)
+                {
+                    Result += $"Namn:\t \t {person.Name}\n" +
+                              $"Kön:\t \t {person.Gender}\n" +
+                              $"Ögonfärg:\t {person.EyeColor}\n" +
+                              $"Hår:\t \t {person.Hair.Haircolor},{person.Hair.HairLength}\n" +
+                              $"Födelsedatum:\t {person.BirthDate}\n\n";
+                }
+            }
+        }
+
     }
 }
+

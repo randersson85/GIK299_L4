@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GIK299_L3
+namespace GIK299_L4
 {
     public struct Hair
     {
