@@ -13,6 +13,5 @@ namespace GIK299_L4
         ickeBinar,
         annat,
         okänt
-
     }
 }

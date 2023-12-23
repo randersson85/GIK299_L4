@@ -1,13 +1,42 @@
 ﻿using System.Reflection;
 using System;
 using System.Linq.Expressions;
-using static GIK299_L4.Person;
-using static GIK299_L4.Person.AddPerson;
+using System.Collections.Generic;
+
 
 namespace GIK299_L4
 {
     class Program
     {
+        public static List<Person> people = new List<Person>();
+
+        public class AddPerson
+        {
+            public AddPerson(Person person)
+            {
+                people.Add(person);
+            }
+        }
+
+        static class ListPersons
+        {
+            internal static string Result { get; private set; }
+
+            internal static string GetPerson()
+            {
+                string result = null;
+                foreach (var person in people)
+                {
+                    Result += $"Namn:\t \t {person.Name}\n" +
+                              $"Kön:\t \t {person.Gender}\n" +
+                              $"Ögonfärg:\t {person.EyeColor}\n" +
+                              $"Hår:\t \t {person.Hair.Haircolor},{person.Hair.HairLength}\n" +
+                              $"Födelsedatum:\t {person.BirthDate}\n\n";
+                }
+                return result;
+            }
+        }
+
         static void Main(string[] args)
         {
             AddPerson addPerson = null;
@@ -232,7 +261,8 @@ namespace GIK299_L4
                                 }
                                 else
                                 {
-                                    addPerson = new Person.AddPerson(person);
+                                    addPerson = new AddPerson(person);
+
                                 }
 
 
@@ -242,24 +272,22 @@ namespace GIK299_L4
 
                         case 2: //Menyval 2, lista inmata personer.
                             {
-                                if (addPerson == null)
+                                if (people.Count == 0)
                                 {
                                     Console.WriteLine("Listan över personer är tom, börja med att lägga till personer först.");
                                 }
                                 else
                                 {
-
-                                    Person.ListPersons listPersons = new Person.ListPersons();
-
                                     // Hämta resultatet och skriv ut det
-                                    string result = listPersons.Result;
+                                    string result = ListPersons.GetPerson();
                                     Console.WriteLine(result);
                                 }
 
                                 break;
                             }
 
-                        case 3: //Meny
+
+                        case 3: //Menyval 3, Avsluta programmet.
                             {
                                 loopMenu = false;
                                 Console.WriteLine("Avslutar programmet");
